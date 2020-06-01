@@ -6,11 +6,16 @@
 def _go_download_impl(ctx):
     # Download the Go distribution.
     ctx.report_progress("downloading")
-    ctx.download_and_extract(
+
+    ctx.download(
         ctx.attr.urls,
         sha256 = ctx.attr.sha256,
-        stripPrefix = "go",
+        out = "go_sdk.tar.gz",
     )
+    res = ctx.execute(["tar", "-xf", "go_sdk.tar.gz", "--strip-components=1"])
+    if res.return_code:
+            fail("error extracting Go SDK:\n" + res.stdout + res.stderr)
+    ctx.execute(["rm", "go_sdk.tar.gz"])
 
     # Add a build file to the repository root directory.
     # We need to fill in some template parameters, based on the platform.

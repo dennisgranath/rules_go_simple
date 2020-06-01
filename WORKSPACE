@@ -30,16 +30,16 @@ go_download(
     name = "go_darwin_amd64",
     goarch = "amd64",
     goos = "darwin",
-    sha256 = "a9088c44a984c4ba64179619606cc65d9d0cb92988012cfc94fbb29ca09edac7",
-    urls = ["https://dl.google.com/go/go1.13.4.darwin-amd64.tar.gz"],
+    sha256 = "",
+    urls = ["https://dl.google.com/go/go1.14.3.darwin-amd64.tar.gz"],
 )
 
 go_download(
     name = "go_linux_amd64",
     goarch = "amd64",
     goos = "linux",
-    sha256 = "692d17071736f74be04a72a06dab9cac1cd759377bd85316e52b2227604c004c",
-    urls = ["https://dl.google.com/go/go1.13.4.linux-amd64.tar.gz"],
+    sha256 = "",
+    urls = ["https://dl.google.com/go/go1.14.3.linux-amd64.tar.gz"],
 )
 
 # register_toolchains makes one or more toolchain rules available for Bazel's
